@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16937FE32E00D00A006D4179 /* ClockSyncApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16937FE22E00CFF3006D4179 /* ClockSyncApp.swift */; };
+		16937FE52E00D5DE006D4179 /* ClockSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16937FE42E00D5DA006D4179 /* ClockSync.swift */; };
 		96B8EE2E2B031D6300892BE1 /* ReClockSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B8EE2D2B031D6300892BE1 /* ReClockSync.swift */; };
 		96B8EE302B031D6300892BE1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B8EE2F2B031D6300892BE1 /* ContentView.swift */; };
-		96B8EE322B031D6400892BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96B8EE312B031D6400892BE1 /* Assets.xcassets */; };
-		96B8EE352B031D6400892BE1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96B8EE342B031D6400892BE1 /* Preview Assets.xcassets */; };
 		96B8EE452B03265500892BE1 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 96B8EE442B03265500892BE1 /* Inject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16937FE22E00CFF3006D4179 /* ClockSyncApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockSyncApp.swift; sourceTree = "<group>"; };
+		16937FE42E00D5DA006D4179 /* ClockSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockSync.swift; sourceTree = "<group>"; };
 		96B8EE2A2B031D6300892BE1 /* ReClockSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReClockSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96B8EE2D2B031D6300892BE1 /* ReClockSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReClockSync.swift; sourceTree = "<group>"; };
 		96B8EE2F2B031D6300892BE1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		96B8EE312B031D6400892BE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		96B8EE342B031D6400892BE1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +54,9 @@
 			isa = PBXGroup;
 			children = (
 				96B8EE2D2B031D6300892BE1 /* ReClockSync.swift */,
+				16937FE22E00CFF3006D4179 /* ClockSyncApp.swift */,
 				96B8EE2F2B031D6300892BE1 /* ContentView.swift */,
-				96B8EE312B031D6400892BE1 /* Assets.xcassets */,
+				16937FE42E00D5DA006D4179 /* ClockSync.swift */,
 				96B8EE332B031D6400892BE1 /* Preview Content */,
 			);
 			path = ReClockSync;
@@ -64,7 +65,6 @@
 		96B8EE332B031D6400892BE1 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				96B8EE342B031D6400892BE1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -100,7 +100,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					96B8EE292B031D6300892BE1 = {
 						CreatedOnToolsVersion = 15.0;
@@ -133,8 +133,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96B8EE352B031D6400892BE1 /* Preview Assets.xcassets in Resources */,
-				96B8EE322B031D6400892BE1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,8 +143,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16937FE32E00D00A006D4179 /* ClockSyncApp.swift in Sources */,
 				96B8EE302B031D6300892BE1 /* ContentView.swift in Sources */,
 				96B8EE2E2B031D6300892BE1 /* ReClockSync.swift in Sources */,
+				16937FE52E00D5DE006D4179 /* ClockSync.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +188,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = Q33T4A7DMT;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -255,6 +256,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = Q33T4A7DMT;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -289,7 +291,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ReClockSync/Preview Content\"";
-				DEVELOPMENT_TEAM = Q33T4A7DMT;
 				EMIT_FRONTEND_COMMAND_LINES = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -325,7 +326,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ReClockSync/Preview Content\"";
-				DEVELOPMENT_TEAM = Q33T4A7DMT;
 				EMIT_FRONTEND_COMMAND_LINES = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
