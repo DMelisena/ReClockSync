@@ -3,6 +3,8 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject private var io = Inject.observer // swiftlint:disable:this identifier_name
+    @State var showingSettingsSheet = false
+    @State private var showingAddAlarmSheet = false
     private let defaults = UserDefaults.standard
     var startValue = CGFloat(UserDefaults.standard.double(forKey: "startAngle"))
     var endValue = CGFloat(UserDefaults.standard.double(forKey: "endAngle"))
@@ -10,17 +12,45 @@ struct ContentView: View {
     var body: some View {
         VStack {
             ClockSlider(startAngle: startValue, endAngle: endValue)
-            Image(systemName: "apple.logo")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 100, height: 100)
-                .imageScale(.large)
-                .foregroundStyle(.black)
-
             Text("test")
-                .font(.largeTitle)
-                .fontDesign(.rounded)
-                .fontWeight(.bold)
+
+            HStack {
+                // Settings button
+                Button(action: {
+                    showingSettingsSheet = true
+                }) {
+                    Image(systemName: "gearshape.fill")
+                        .font(.system(size: 24))
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.gray.opacity(0.3))
+                        .clipShape(Circle())
+                }
+                .sheet(isPresented: $showingSettingsSheet) {
+                    SettingsView()
+                        .preferredColorScheme(.dark)
+                }
+                Spacer()
+
+                // Plus button
+                Button(action: {
+                    showingAddAlarmSheet = true
+                }) {
+                    Image(systemName: "plus")
+                        .font(.system(size: 24))
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.gray.opacity(0.3))
+                        .clipShape(Circle())
+                }
+                .sheet(isPresented: $showingAddAlarmSheet) {
+                    AddAlarmView(showingAddAlarmSheet: $showingAddAlarmSheet)
+                }
+            }
+            .padding(.horizontal, 40)
+            .padding(.bottom, 30)
+            Spacer() // Pushes buttons to the bottom
+            HStack {}
         }
         .padding()
         .enableInjection()

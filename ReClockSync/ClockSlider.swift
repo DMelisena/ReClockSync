@@ -13,21 +13,20 @@ enum SliderLockType { // Which slider is being moved. so if start is clicked, it
 struct ClockSlider: View {
     // Default State (pi for half circle value, - to go left)
     // @State is needed if variable affect the view directly. (hot reload & view debugging purpose)
-    
+
     private let defaults = UserDefaults.standard
     @State private var startAngle: CGFloat
     @State private var endAngle: CGFloat
-    
-    init(startAngle: CGFloat, endAngle: CGFloat) {
+
+    init(startAngle _: CGFloat, endAngle _: CGFloat) {
         let loadedStartAngle = defaults.object(forKey: "startAngle") as? CGFloat ?? -CGFloat.pi / 2
 
         let loadedEndAngle = defaults.object(forKey: "endAngle") as? CGFloat ?? CGFloat.pi / 2 * 1.5
-        
+
         _startAngle = State(initialValue: loadedStartAngle)
         _endAngle = State(initialValue: loadedEndAngle)
-        
     }
-    
+
     @State private var sliderLock: SliderLockType = .none
 
     // The size of the slider
@@ -89,13 +88,12 @@ struct ClockSlider: View {
             return "\(minutes) minute\(minutes != 1 ? "s" : "") of sleep"
         }
     }
-    
+
     var body: some View {
         VStack {
             let startTime = timeFromAngle(startAngle)
             let endTime = timeFromAngle(endAngle)
-            
-            
+
 //            Text("\(startAngle)")
             Text("\(startTime.hour):\(String(format: "%02d", startTime.minute)) - \(endTime.hour):\(String(format: "%02d", endTime.minute))")
                 .font(.system(size: 38, weight: .bold, design: .default))
@@ -115,7 +113,7 @@ struct ClockSlider: View {
                     let tickLength: CGFloat = 8
                     let tickWidth: CGFloat = 2
 
-                    for i in 0 ..< 12 { // 12 tick
+                    for i in 0 ..< 12 { // 12 tick :ignore
                         let angle = CGFloat(i) * .pi / 6 // 30° per hour
                         let tickStart = CGPoint(
                             x: center.x + (radius - tickLength) * cos(angle),
@@ -174,7 +172,9 @@ struct ClockSlider: View {
             Text(formattedDuration)
                 .font(.headline)
                 .padding(.top, 20)
+            Text("dfasdf fsafasdf  faf  dfasdfj ")
         }
+        .enableInjection()
     }
 
     // Function to create a knob handle based on angle
@@ -233,11 +233,11 @@ struct ClockSlider: View {
 }
 
 // TODO:
-struct ClockSliderView_Previews: PreviewProvider {
-    static var previews: some View {
-        let startValue = CGFloat(UserDefaults.standard.double(forKey: "startAngle"))
-        let endValue = CGFloat(UserDefaults.standard.double(forKey: "endAngle"))
-
-        return ClockSlider(startAngle: startValue, endAngle: endValue)
-    }
-}
+// struct ClockSliderView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let startValue = CGFloat(UserDefaults.standard.double(forKey: "startAngle"))
+//        let endValue = CGFloat(UserDefaults.standard.double(forKey: "endAngle"))
+//
+//        return ClockSlider(startAngle: startValue, endAngle: endValue)
+//    }
+// }
