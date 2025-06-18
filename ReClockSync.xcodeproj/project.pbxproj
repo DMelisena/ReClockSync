@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		16937FE32E00D00A006D4179 /* ClockSyncApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16937FE22E00CFF3006D4179 /* ClockSyncApp.swift */; };
-		16937FE52E00D5DE006D4179 /* ClockSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16937FE42E00D5DA006D4179 /* ClockSync.swift */; };
-		96B8EE2E2B031D6300892BE1 /* ReClockSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B8EE2D2B031D6300892BE1 /* ReClockSync.swift */; };
+		16937FE52E00D5DE006D4179 /* ClockSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16937FE42E00D5DA006D4179 /* ClockSlider.swift */; };
+		16C5BE2B2E011CF100439008 /* AlarmCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C5BE2A2E011CEC00439008 /* AlarmCards.swift */; };
+		16C5BE2D2E011D7D00439008 /* AddAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C5BE2C2E011D2F00439008 /* AddAlarmView.swift */; };
+		16C5BE732E03189F00439008 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C5BE722E03189200439008 /* SettingsView.swift */; };
+		96B8EE2E2B031D6300892BE1 /* ReClockSyncApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B8EE2D2B031D6300892BE1 /* ReClockSyncApp.swift */; };
 		96B8EE302B031D6300892BE1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B8EE2F2B031D6300892BE1 /* ContentView.swift */; };
 		96B8EE452B03265500892BE1 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 96B8EE442B03265500892BE1 /* Inject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		16937FE22E00CFF3006D4179 /* ClockSyncApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockSyncApp.swift; sourceTree = "<group>"; };
-		16937FE42E00D5DA006D4179 /* ClockSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockSync.swift; sourceTree = "<group>"; };
+		16937FE42E00D5DA006D4179 /* ClockSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockSlider.swift; sourceTree = "<group>"; };
+		16C5BE2A2E011CEC00439008 /* AlarmCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCards.swift; sourceTree = "<group>"; };
+		16C5BE2C2E011D2F00439008 /* AddAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmView.swift; sourceTree = "<group>"; };
+		16C5BE722E03189200439008 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		96B8EE2A2B031D6300892BE1 /* ReClockSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReClockSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		96B8EE2D2B031D6300892BE1 /* ReClockSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReClockSync.swift; sourceTree = "<group>"; };
+		96B8EE2D2B031D6300892BE1 /* ReClockSyncApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReClockSyncApp.swift; sourceTree = "<group>"; };
 		96B8EE2F2B031D6300892BE1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,10 +57,12 @@
 		96B8EE2C2B031D6300892BE1 /* ReClockSync */ = {
 			isa = PBXGroup;
 			children = (
-				96B8EE2D2B031D6300892BE1 /* ReClockSync.swift */,
-				16937FE22E00CFF3006D4179 /* ClockSyncApp.swift */,
+				96B8EE2D2B031D6300892BE1 /* ReClockSyncApp.swift */,
 				96B8EE2F2B031D6300892BE1 /* ContentView.swift */,
-				16937FE42E00D5DA006D4179 /* ClockSync.swift */,
+				16C5BE722E03189200439008 /* SettingsView.swift */,
+				16C5BE2A2E011CEC00439008 /* AlarmCards.swift */,
+				16C5BE2C2E011D2F00439008 /* AddAlarmView.swift */,
+				16937FE42E00D5DA006D4179 /* ClockSlider.swift */,
 				96B8EE332B031D6400892BE1 /* Preview Content */,
 			);
 			path = ReClockSync;
@@ -143,10 +149,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16937FE32E00D00A006D4179 /* ClockSyncApp.swift in Sources */,
 				96B8EE302B031D6300892BE1 /* ContentView.swift in Sources */,
-				96B8EE2E2B031D6300892BE1 /* ReClockSync.swift in Sources */,
-				16937FE52E00D5DE006D4179 /* ClockSync.swift in Sources */,
+				16C5BE2D2E011D7D00439008 /* AddAlarmView.swift in Sources */,
+				16C5BE2B2E011CF100439008 /* AlarmCards.swift in Sources */,
+				16C5BE732E03189F00439008 /* SettingsView.swift in Sources */,
+				96B8EE2E2B031D6300892BE1 /* ReClockSyncApp.swift in Sources */,
+				16937FE52E00D5DE006D4179 /* ClockSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
