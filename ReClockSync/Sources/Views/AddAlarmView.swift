@@ -32,6 +32,7 @@ struct DaysPicker: View {
         }
     }
 }
+
 struct Alarm: Codable {
     var time: Date
     var keyDevice: [String]
@@ -40,13 +41,11 @@ struct Alarm: Codable {
     var description: String {
         return "Alarm(device: \(keyDevice), tone: \(tones))"
     }
-    
 }
 
 struct AddAlarmView: View {
     @State private var arrayOfAlarms: [Alarm] = []
     @Binding var showingAddAlarmSheet: Bool
-    
     @State private var alarmTime = Date()
     @State private var selectedTone = "For River"
 //    @State private var repeatEnabled = false
@@ -72,7 +71,6 @@ struct AddAlarmView: View {
 //    @State private var selectedTimeZone = TimeZone.current.identifier
 //    @State private var selectedMinutes = 0
 //    @State private var repeatOption = "Every Day"
-    
 
     var body: some View {
         NavigationStack {
@@ -90,7 +88,6 @@ struct AddAlarmView: View {
                         ForEach(tones, id: \.self) { tone in
                             Text(tone)
                         }
-                        
                     }
 //                    Toggle("Repeat", isOn: $repeatEnabled)
 //                    if repeatEnabled {
@@ -143,7 +140,8 @@ struct AddAlarmView: View {
             }
             .onAppear {
                 if let savedData = UserDefaults.standard.data(forKey: "alarms"),
-                   let decoded = try? JSONDecoder().decode([Alarm].self, from: savedData) {
+                   let decoded = try? JSONDecoder().decode([Alarm].self, from: savedData)
+                {
                     arrayOfAlarms = decoded
                 }
             }
@@ -151,7 +149,7 @@ struct AddAlarmView: View {
     }
 }
 
-//#Preview {
+// #Preview {
 //    AddAlarmView(showingAddAlarmSheet: .constant(true))
 //        .preferredColorScheme(.dark)
-//}
+// }

@@ -2,7 +2,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject private var io = Inject.observer // swiftlint:disable:this identifier_name
+    @ObserveInjection var inject // This is the correct way to use it
     @State var showingSettingsSheet = false
     @State private var showingAddAlarmSheet = false
     private let defaults = UserDefaults.standard
@@ -13,7 +13,6 @@ struct ContentView: View {
         VStack {
             ClockSlider(startAngle: startValue, endAngle: endValue)
             Text("test")
-
             HStack {
                 // Settings button
                 Button(action: {
