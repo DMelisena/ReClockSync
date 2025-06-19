@@ -113,7 +113,7 @@ struct ClockSlider: View {
                     let tickLength: CGFloat = 8
                     let tickWidth: CGFloat = 2
 
-                    for i in 0 ..< 12 { // 12 tick :ignore
+                    for i in 0 ..< 12 { // 12 tick :ignore //swiftlint:disable:this identifier_name
                         let angle = CGFloat(i) * .pi / 6 // 30° per hour
                         let tickStart = CGPoint(
                             x: center.x + (radius - tickLength) * cos(angle),
