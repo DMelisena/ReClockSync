@@ -16,8 +16,8 @@ let project = Project(
                     ],
                 ]
             ),
-            sources: ["ReClockSync/Sources/**"],
-            resources: ["ReClockSync/Resources/**"],
+            sources: ["App/Sources/**"],
+            resources: ["App/Resources/**"],
             dependencies: [
                 .external(name: "Inject"),
             ],
@@ -56,7 +56,7 @@ let project = Project(
             product: .unitTests,
             bundleId: "io.tuist.ReClockSyncTest",
             infoPlist: .default,
-            sources: ["ReClockSync/Tests/**"],
+            sources: ["App/Tests/**"],
             resources: [],
             dependencies: [.target(name: "ReClockSync")]
         ),
