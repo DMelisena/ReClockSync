@@ -5,15 +5,20 @@ struct ContentView: View {
     @ObserveInjection var inject // This is the correct way to use it
     @State var showingSettingsSheet = false
     @State private var showingAddAlarmSheet = false
+
     private let defaults = UserDefaults.standard
+
     var startValue = CGFloat(UserDefaults.standard.double(forKey: "startAngle"))
     var endValue = CGFloat(UserDefaults.standard.double(forKey: "endAngle"))
 
+    @State private var alarms: [Alarm] = []
+
+    let userDefaultsKey = "alarms" // Must be the SAME key used for saving
     var body: some View {
         VStack {
             ClockSlider(startAngle: startValue, endAngle: endValue)
-            Text("test")
-            HStack {
+            AlarmCards(alarms: $alarms)
+            HStack { // {{{
                 // Settings button
                 Button(action: {
                     showingSettingsSheet = true
@@ -43,15 +48,24 @@ struct ContentView: View {
                         .clipShape(Circle())
                 }
                 .sheet(isPresented: $showingAddAlarmSheet) {
-                    AddAlarmView(showingAddAlarmSheet: $showingAddAlarmSheet)
+                    AddAlarmView(showingAddAlarmSheet: $showingAddAlarmSheet, alarms: $alarms)
                 }
-            }
+            } // }}}
             .padding(.horizontal, 40)
             .padding(.bottom, 30)
-            Spacer() // Pushes buttons to the bottom
-            HStack {}
+            Spacer()
         }
-        .padding()
-        .enableInjection()
+        .onAppear {
+            loadAlarms()
+        }
+    }
+
+    func loadAlarms() {
+        if let savedData = UserDefaults.standard.data(forKey: "alarms"),
+           let decoded = try? JSONDecoder().decode([Alarm].self, from: savedData)
+        {
+            alarms = decoded
+        }
+        print("AlarmLoaded")
     }
 }
