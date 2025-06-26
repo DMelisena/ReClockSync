@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-#if os(iOS)
+#if os(iOS) // This makes the code inside of this to only compiled to final product if the target product is iOS
+//     #if os(iOS) || os(watchOS) || os(tvOS)  WOULD ALSO WORK ON THIS
 
     enum Day: String, CaseIterable {
         case monday, tuesday, wednesday, thursday, friday, saturday, sunday
