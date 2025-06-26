@@ -49,31 +49,6 @@ struct AlarmCard: View {
     }
 }
 
-class AlarmCards: ObservableObject{
-    @State private var isOn = true
-    @State private var showConfiguration = false
-    @State private var alarmTime = Date()
-    
-    @State var alarms: [Alarm] = []
-    var body: some View {
-        VStack{
-            List {ForEach(alarms.indices, id: \.self) { index in
-                }
-            }
-            .padding(.top,-35)
-            .listStyle(.grouped)
-            .frame(minWidth: 0, maxWidth: .infinity)
-        }
-        .onAppear {
-            if let savedData = UserDefaults.standard.data(forKey: "alarms"),
-               let decoded = try? JSONDecoder().decode([Alarm].self, from: savedData) {
-//                alarms = decoded
-            }
-        }
-        .enableInjection()
-    }
-}
-
 struct ConfigurationView: View {
     @Binding var alarmTime: Date
     @Binding var isOn: Bool
@@ -92,7 +67,7 @@ struct ConfigurationView: View {
     }
 }
 
-#Preview {
-    AlarmCard(alarm: Alarm(id: UUID(),time: Date(), keyDevice:["ip15","ip16"],tones:"marry",isOn: true))
-        .preferredColorScheme(.dark)
-}
+//#Preview {
+//    AlarmCard(alarm: Alarm(id: UUID(),time: Date(), keyDevice:["ip15","ip16"],tones:"marry",isOn: true))
+//        .preferredColorScheme(.dark)
+//}
