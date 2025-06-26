@@ -10,12 +10,12 @@ import SwiftUI
 #if os(iOS) // This makes the code inside of this to only compiled to final product if the target product is iOS
 //     #if os(iOS) || os(watchOS) || os(tvOS)  WOULD ALSO WORK ON THIS
 
-    enum Day: String, CaseIterable {
-        case monday, tuesday, wednesday, thursday, friday, saturday, sunday
+    enum Day: String, CaseIterable, Codable {
+        case sunday, monday, tuesday, wednesday, thursday, friday, saturday
     }
 
     struct DaysPicker: View {
-        @State private var selectedDays: [Day] = []
+        @Binding var selectedDays: [Day]
         var body: some View {
             HStack {
                 ForEach(Day.allCases, id: \.self) { day in
@@ -45,11 +45,14 @@ import SwiftUI
         var description: String {
             return "Alarm(device: \(keyDevice), tone: \(tones))"
         }
+
+        var selectedDays: [Day]
     }
 
     struct AddAlarmView: View {
         @Binding var showingAddAlarmSheet: Bool
         @Binding var alarms: [Alarm]
+        @State var selectedDays: [Day] = []
         @State private var alarmTime = Date()
         @State private var selectedTone = "For River"
 
@@ -76,13 +79,14 @@ import SwiftUI
                                 Text(tone)
                             }
                         }
+                        DaysPicker(selectedDays: $selectedDays)
                     }
                     .navigationTitle("Add Alarm")
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("Add") {
-                            let newAlarm = Alarm(id: UUID(), time: alarmTime, keyDevice: [keyDevice], tones: selectedTone, isOn: true)
+                            let newAlarm = Alarm(id: UUID(), time: alarmTime, keyDevice: [keyDevice], tones: selectedTone, isOn: true, selectedDays: selectedDays)
                             alarms.append(newAlarm)
                             do {
                                 let encoded = try JSONEncoder().encode(alarms)
